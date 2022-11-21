@@ -1,0 +1,20 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+<div class="d-flex">
+    <h1>{{entry_name}}</h1>
+</div>
+
+    <form action = "{% url 'edit' entry_name %}" method="POST">
+        {% csrf_token %}
+        <input type="submit" class="btn btn-dark btn-sm" value="Edit page" name="edit">
+    </form>
+    <div>{{content|safe}}</div>
+
+    
+
+{% endblock %}
